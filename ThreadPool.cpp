@@ -57,7 +57,7 @@ bool ThreadPool::add_task_queue(Task task){
 	bool ret = false ;
 	if(_is_started)
 	{
-		std::cout<<"add task queue "<<task._num<<std::endl;
+		std::cout<<"add task queue "<<task.req_buf<<std::endl;
 		_task_queue.push(task);
 		_cond.notify();   //notify work pthread there are tasks
 		ret = true ;

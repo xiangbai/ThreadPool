@@ -9,12 +9,17 @@
 #define THREADPOOL_H_
 #include <queue>
 #include <vector>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 #include "WorkThread.h"
 #include "MutexLock.h"
 #include "Condition.h"
 #include "noncopyable.h"
 struct Task{
-	int _num ;
+	char *req_buf;   //
+	struct sockaddr_in m_clinet_addr ;
 };
 class ThreadPool :public noncopyable{
 public:
