@@ -1,0 +1,2 @@
+server:MutexLock.cpp Condition.cpp Thread.cpp WorkThread.cpp ThreadPool.cpp Server.cpp test_server.cpp
+	g++ -o server MutexLock.cpp Condition.cpp Thread.cpp WorkThread.cpp ThreadPool.cpp Server.cpp  test_server.cpp -lpthread

@@ -23,8 +23,8 @@ class Server {
 public:
 	Server(std::string &ip , std::string &port);   //create socket , bind server
 	virtual ~Server();  //close socket
-	int sent_message(char *buf , int len);
-	int recv_message(char *buf , int len) ;
+	int sent_message(const void *buf , size_t len);
+	int recv_message(void *buf , size_t len) ;
 	const struct sockaddr_in get_client_addr()const;   //为线程池提供客户端信息
 private:
 	SOCKET _socket_fd ;

@@ -6,7 +6,9 @@
 
 int main(int argc , char **argv)
 {
-	Server server("127.0.0.1" , "6688") ;  //连接服务器，并开启服务器
+	std::string ip("127.0.0.1");
+	std::string port("6688") ;
+	Server server(ip , port) ;  //连接服务器，并开启服务器
 	ThreadPool p(10) ;    //创建线程池
 	p.start_thread_pool() ;   //启动线程
 

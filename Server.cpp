@@ -27,11 +27,11 @@ Server::Server(std::string &ip , std::string &port):_socket_fd(0) {
 	m_len = sizeof(m_client_addr) ;
 }
 //发送数据出去
-int Server::sent_message(char *buf , int len){
+int Server::sent_message(const void *buf , size_t len){
 	return sendto(_socket_fd, buf, len, 0, (struct sockaddr *)&m_client_addr , sizeof(m_client_addr)) ;
 }
 //接收从客户端发送过来的任务
-int Server::recv_message(char *buf , int len){
+int Server::recv_message(void *buf , size_t len){
 	return recvfrom(_socket_fd, buf, len, 0, (struct sockaddr *)&m_client_addr, &m_len) ;
 }
 //供外界获取客户端信息
