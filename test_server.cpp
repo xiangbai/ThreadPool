@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <stdlib.h>
 #include <unistd.h>
 #include "Server.h"
@@ -6,8 +7,9 @@
 
 int main(int argc , char **argv)
 {
-	std::string ip("127.0.0.1");
-	std::string port("6688") ;
+	std::ifstream fin(argv[1]);
+    std::string ip, port ;
+    fin>>ip>>port;
 	Server server(ip , port) ;  //连接服务器，并开启服务器
 	ThreadPool p(10) ;    //创建线程池
 	p.start_thread_pool() ;   //启动线程

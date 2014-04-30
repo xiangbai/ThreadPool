@@ -7,16 +7,6 @@
 
 #ifndef CLIENT_H_
 #define CLIENT_H_
-/*#include <stdio.h>
-#include <stdlib.h>
-#include <string>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <string.h>
-#include <stdexcept>*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/socket.h>
