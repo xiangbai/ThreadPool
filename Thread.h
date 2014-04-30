@@ -5,11 +5,11 @@
 class Thread{
 	private:
 		pthread_t _pth ;
+		pthread_attr_t _attr ;
 	public:
 		Thread() ;
 		virtual ~Thread() ;
 		void start() ;
-		void join() ;
 		static void *thread_handle(void *arg) ;
 		virtual void run() = 0 ;
 		pthread_t get_tid() const ;

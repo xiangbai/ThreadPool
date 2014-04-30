@@ -17,7 +17,9 @@ int main(int argc , char **argv)
 	while(true)
 	{
 		Task task ;
-		task._num = rand() % 100 ;
+		std::string word ;
+		std::cin>>word ;
+		task.req_buf = word ;
 		p.add_task_queue(task) ;
 		sleep(1);
 	}
