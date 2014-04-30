@@ -70,6 +70,7 @@ bool ThreadPool::get_task_queue(Task &task){
 	//if the thread pool is false , return
 	if(_is_started == false)
 	{
+		_cond.notifyAll();
 		return false ;
 	}
 

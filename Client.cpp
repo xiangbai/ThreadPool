@@ -20,15 +20,17 @@ Client::Client(std::string &ip , std::string &port) {
 	m_server_addr.sin_addr.s_addr = inet_addr(ip.c_str()) ;
 	m_len = sizeof(m_server_addr);
 }
-int Client::send_message(const void *buf , int len)
+int Client::send_message(const void *buf , size_t len)
 {
 	return sendto(m_socket_fd, buf, len, 0, (struct sockaddr *)&m_server_addr , sizeof(m_server_addr)) ;
 }
-int Client::recv_message(void *buf , int len)
+int Client::recv_message(void *buf , size_t len)
 {
 	return recvfrom(m_socket_fd, buf, len, 0,NULL, NULL) ;
 }
 Client::~Client() {
 	// TODO Auto-generated destructor stub
+	close(m_socket_fd);
 }
+
 

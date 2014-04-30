@@ -1,18 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <string.h>
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <arpa/inet.h>
-#include <netinet/in.h>
-#include <stdexcept>
-
+#include "Client.h"
 int main(int argc , char **argv)
 {
-	int server_fd = socket(AF_INET, SOCK_DGRAM ,  0 );
+/*	int server_fd = socket(AF_INET, SOCK_DGRAM ,  0 );
 	if(server_fd == -1)
 	{
 		throw std::runtime_error("socket");
@@ -29,6 +19,16 @@ int main(int argc , char **argv)
 		int iret =sendto(server_fd, word.c_str(),word.size(), 0, (struct sockaddr*)&server_addr, 16);
 		recvfrom(server_fd, &result, 4, 0, NULL, NULL);
 		std::cout <<"result: " << result << std::endl ;
+	}*/
+	std::string ip("127.0.0.1");
+	std::string port("6688");
+	Client client(ip, port);
+	int result = 0;
+	std::string word ;
+	while(std::cin>>word){
+		int iret = client.send_message((void *)word.c_str(), word.size());
+		client.recv_message((void*)&result, 4);
+		std::cout<<"result: "<<result<<std::endl;
 	}
 	return 0 ;
 }

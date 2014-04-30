@@ -1,2 +1,2 @@
-client:test_client.cpp
-	g++ -o client test_client.cpp
+client:test_client.cpp Client.cpp
+	g++ -g -o client test_client.cpp Client.cpp
